@@ -1,16 +1,17 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { CalendarCheck, HomeIcon, Settings, Users2 } from "lucide-react";
+import { CalendarCheck, HomeIcon, LucideProps, Settings, Users2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import React from "react";
+import React, { ForwardRefExoticComponent, RefAttributes } from "react";
 
 interface iAppProps {
     id: number;
     name: string;
     href: string;
-    icon: React.ComponentType<{ className?: string }>;
+    icon: ForwardRefExoticComponent<Omit<LucideProps, "ref"> & RefAttributes<SVGSVGElement>>;
+    // icon: React.ComponentType<{ className?: string }>;
 }
 
 export const dashboardLinks: iAppProps[] = [
@@ -55,7 +56,7 @@ export function DashboardLinks() {
                         "flex items-center gap-3 rounded-lg px-3 py-2  transition-all  hover:text-primary"
                     )}
                 >
-                    <link.icon className="h-4 w-4" />
+                    <link.icon className="size-4" />
                     {link.name}
                 </Link>
             ))}

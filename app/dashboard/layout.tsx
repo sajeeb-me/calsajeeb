@@ -3,6 +3,10 @@ import { ReactNode } from "react";
 import Logo from "@/public/logo.png";
 import Image from "next/image";
 import { DashboardLinks } from "../components/DashboardLinks";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Menu } from "lucide-react";
+import { ThemeToggle } from "../components/ThemeToggle";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
     return (
@@ -24,7 +28,32 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                     </div>
                 </div>
                 <div className="flex flex-col">
+                    <header className="flex h-14 items-center gap-4 border-b bg-muted/40 px-4 lg:h-[60px] lg:px-6">
+                        <Sheet>
+                            <SheetTrigger asChild>
+                                <Button
+                                    variant="outline"
+                                    size="icon"
+                                    className="shrink-0 md:hidden"
+                                >
+                                    <Menu className="size-5" />
+                                    <span className="sr-only">Toggle navigation menu</span>
+                                </Button>
+                            </SheetTrigger>
+                            <SheetContent side="left" className="flex flex-col">
+                                <nav className="grid gap-2 mt-10">
+                                    <DashboardLinks />
+                                </nav>
+                            </SheetContent>
+                        </Sheet>
 
+                        <div className="ml-auto flex items-center gap-x-4">
+                            <ThemeToggle />
+                        </div>
+                    </header>
+                    <main className="flex flex-1 flex-col gap-4 p-4 lg:gap-6 lg:p-6">
+                        {children}
+                    </main>
                 </div>
             </div>
         </>
