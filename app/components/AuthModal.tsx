@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/ui/dialog";
 import Image from "next/image";
 import Logo from "@/public/logo.png";
+import { signIn } from "../lib/auth";
 
 export function AuthModal() {
     return (
@@ -17,6 +18,30 @@ export function AuthModal() {
                         Cal<span className="text-primary">Sajeeb</span>
                     </h4>
                 </DialogHeader>
+                <div className="flex flex-col gap-3 mt-5">
+                    <form
+                        className="w-full"
+                        action={async () => {
+                            "use server";
+                            await signIn("google");
+                        }}
+                    >
+                        {/* <GoogleAuthButton /> */}
+                        <Button className="w-full">Sign in with Google</Button>
+
+                    </form>
+
+                    <form
+                        className="w-full"
+                        action={async () => {
+                            "use server";
+                            await signIn("github");
+                        }}
+                    >
+                        {/* <GitHubAuthButton /> */}
+                        <Button className="w-full">Sign in with Github</Button>
+                    </form>
+                </div>
             </DialogContent>
         </Dialog>
     )
