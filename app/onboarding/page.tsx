@@ -1,3 +1,5 @@
+'use client';
+
 import {
     Card,
     CardContent,
@@ -9,9 +11,27 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SubmitButton } from "../components/SubmitButtons";
+import { useFormState } from "react-dom";
+import { OnboardingAction } from "../actions";
+import { useForm } from "@conform-to/react"
+import { parseWithZod } from "@conform-to/zod";
+import { onboardingSchema } from "../lib/zodSchemas";
 
 
 export default function OnboardingRoute() {
+    const [lastResult, action] = useFormState(OnboardingAction, undefined);
+
+    const [form, fields] = useForm({
+        lastResult,
+        onValidate({ formData }) {
+            return parseWithZod(formData, {
+                schema: onboardingSchema,
+            })
+        },
+        shouldValidate: 'onBlur',
+        shouldRevalidate: 'onInput',
+    })
+
     return (
         <div className="h-screen w-screen flex items-center justify-center">
             <Card>
@@ -27,12 +47,12 @@ export default function OnboardingRoute() {
                         <div className="grid gap-y-2">
                             <Label>Full Name</Label>
                             <Input
-                                //   name={fields.fullName.name}
-                                //   defaultValue={fields.fullName.initialValue}
-                                //   key={fields.fullName.key}
+                                name={fields.fullName.name}
+                                defaultValue={fields.fullName.initialValue}
+                                key={fields.fullName.key}
                                 placeholder="Sajeeb Das"
                             />
-                            {/* <p className="text-red-500 text-sm">{fields.fullName.errors}</p> */}
+                            <p className="text-red-500 text-sm">{fields.fullName.errors}</p>
                         </div>
                         <div className="grid gap-y-2">
                             <Label>Username</Label>
@@ -43,14 +63,14 @@ export default function OnboardingRoute() {
                                 </span>
                                 <Input
                                     type="text"
-                                    // key={fields.username.key}
-                                    // defaultValue={fields.username.initialValue}
-                                    // name={fields.username.name}
+                                    key={fields.userName.key}
+                                    defaultValue={fields.userName.initialValue}
+                                    name={fields.userName.name}
                                     placeholder="example-user-1"
                                     className="rounded-l-none"
                                 />
                             </div>
-                            {/* <p className="text-red-500 text-sm">{fields.username.errors}</p> */}
+                            <p className="text-red-500 text-sm">{fields.userName.errors}</p>
                         </div>
                     </CardContent>
                     <CardFooter className="w-full">
