@@ -22,41 +22,41 @@ export default function OnboardingRoute() {
                     </CardDescription>
                 </CardHeader>
 
-                {/* <form id={form.id} onSubmit={form.onSubmit} action={action} noValidate> */}
-                <CardContent className="flex flex-col gap-y-5">
-                    <div className="grid gap-y-2">
-                        <Label>Full Name</Label>
-                        <Input
-                            //   name={fields.fullName.name}
-                            //   defaultValue={fields.fullName.initialValue}
-                            //   key={fields.fullName.key}
-                            placeholder="Sajeeb Das"
-                        />
-                        {/* <p className="text-red-500 text-sm">{fields.fullName.errors}</p> */}
-                    </div>
-                    <div className="grid gap-y-2">
-                        <Label>Username</Label>
-
-                        <div className="flex rounded-md">
-                            <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-muted bg-muted text-muted-foreground text-sm">
-                                CalSajeeb.com/
-                            </span>
+                <form id={form.id} onSubmit={form.onSubmit} action={action} noValidate>
+                    <CardContent className="flex flex-col gap-y-5">
+                        <div className="grid gap-y-2">
+                            <Label>Full Name</Label>
                             <Input
-                                type="text"
-                                // key={fields.username.key}
-                                // defaultValue={fields.username.initialValue}
-                                // name={fields.username.name}
-                                placeholder="example-user-1"
-                                className="rounded-l-none"
+                                //   name={fields.fullName.name}
+                                //   defaultValue={fields.fullName.initialValue}
+                                //   key={fields.fullName.key}
+                                placeholder="Sajeeb Das"
                             />
+                            {/* <p className="text-red-500 text-sm">{fields.fullName.errors}</p> */}
                         </div>
-                        {/* <p className="text-red-500 text-sm">{fields.username.errors}</p> */}
-                    </div>
-                </CardContent>
-                <CardFooter className="w-full">
-                    <SubmitButton className="w-full" text="Submit" />
-                </CardFooter>
-                {/* </form> */}
+                        <div className="grid gap-y-2">
+                            <Label>Username</Label>
+
+                            <div className="flex rounded-md">
+                                <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-muted bg-muted text-muted-foreground text-sm">
+                                    CalSajeeb.com/
+                                </span>
+                                <Input
+                                    type="text"
+                                    // key={fields.username.key}
+                                    // defaultValue={fields.username.initialValue}
+                                    // name={fields.username.name}
+                                    placeholder="example-user-1"
+                                    className="rounded-l-none"
+                                />
+                            </div>
+                            {/* <p className="text-red-500 text-sm">{fields.username.errors}</p> */}
+                        </div>
+                    </CardContent>
+                    <CardFooter className="w-full">
+                        <SubmitButton className="w-full" text="Submit" />
+                    </CardFooter>
+                </form>
             </Card>
         </div>
     )
