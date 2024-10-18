@@ -11,3 +11,8 @@ export const nylasConfig = {
     apiKey: process.env.NYLAS_API_SECRET_KEY!,
     apiUri: process.env.NYLAS_API_URI!,
 };
+
+//   const AuthConfig = {
+//     clientId: process.env.NYLAS_CLIENT_ID as string,
+//     redirectUri: "http://localhost:3000/oauth/exchange",
+//   };
