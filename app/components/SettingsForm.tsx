@@ -26,7 +26,6 @@ import { SubmitButton } from "./SubmitButtons";
 interface iAppProps {
     fullName: string;
     email: string;
-
     profileImage: string;
 }
 
