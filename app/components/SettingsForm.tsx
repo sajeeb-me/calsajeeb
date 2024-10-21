@@ -16,12 +16,12 @@ import { Label } from "@/components/ui/label";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { useFormState } from "react-dom";
-// import { UploadDropzone } from "@/app/lib/uploadthing";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 import { SubmitButton } from "./SubmitButtons";
+import { UploadDropzone } from "../lib/uploadthing";
 
 interface iAppProps {
     fullName: string;
@@ -102,22 +102,19 @@ export function SettingsForm({ fullName, email, profileImage }: iAppProps) {
                                 </Button>
                             </div>
                         ) : (
-                            <div>
-
-                            </div>
-                            // <UploadDropzone
-                            //     endpoint="imageUploader"
-                            //     appearance={{
-                            //         container: "border-muted",
-                            //     }}
-                            //     onClientUploadComplete={(res) => {
-                            //         setCurrentProfileImage(res[0].url);
-                            //         toast.success("Profile image uploaded");
-                            //     }}
-                            //     onUploadError={(error) => {
-                            //         toast.error(error.message);
-                            //     }}
-                            // />
+                            <UploadDropzone
+                                endpoint="imageUploader"
+                                appearance={{
+                                    container: "border-muted",
+                                }}
+                                onClientUploadComplete={(res) => {
+                                    setCurrentProfileImage(res[0].url);
+                                    // toast.success("Profile image uploaded");
+                                }}
+                                onUploadError={(error) => {
+                                    // toast.error(error.message);
+                                }}
+                            />
                         )}
                         <p className="text-red-500 text-sm">{fields.profileImage.errors}</p>
                     </div>
