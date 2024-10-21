@@ -19,9 +19,9 @@ import { useFormState } from "react-dom";
 import Image from "next/image";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-// import { toast } from "sonner";
 import { SubmitButton } from "./SubmitButtons";
 import { UploadDropzone } from "../lib/uploadthing";
+import { toast } from "sonner";
 
 interface iAppProps {
     fullName: string;
@@ -109,10 +109,10 @@ export function SettingsForm({ fullName, email, profileImage }: iAppProps) {
                                 }}
                                 onClientUploadComplete={(res) => {
                                     setCurrentProfileImage(res[0].url);
-                                    // toast.success("Profile image uploaded");
+                                    toast.success("Profile image uploaded");
                                 }}
                                 onUploadError={(error) => {
-                                    // toast.error(error.message);
+                                    toast.error(error.message);
                                 }}
                             />
                         )}
