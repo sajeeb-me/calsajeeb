@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import prisma from "../lib/db";
 import { requireUser } from "../lib/hooks";
+import { EmptyState } from "../components/EmptyState";
 
 async function getData(userId: string) {
     const data = await prisma.user.findUnique({
@@ -35,7 +36,7 @@ export default async function DashboardPage() {
     return (
         <>
             {data.eventType.length === 0 ? (
-                <p> no data </p>
+                <EmptyState />
             ) : (
                 <p>we have data</p>
             )}
