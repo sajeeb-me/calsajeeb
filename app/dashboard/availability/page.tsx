@@ -37,7 +37,7 @@ async function getData(userId: string) {
     return data;
 }
 
-const AvailabilityPage = async () => {
+export default async function AvailabilityRoute() {
     const session = await requireUser();
     const data = await getData(session.user?.id as string);
 
@@ -80,7 +80,7 @@ const AvailabilityPage = async () => {
                             </Select>
                             <Select name={`tillTime-${item.id}`} defaultValue={item.tillTime}>
                                 <SelectTrigger className="w-full">
-                                    <SelectValue placeholder="To Time" />
+                                    <SelectValue placeholder="Till Time" />
                                 </SelectTrigger>
                                 <SelectContent>
                                     <SelectGroup>
@@ -102,5 +102,3 @@ const AvailabilityPage = async () => {
         </Card>
     );
 };
-
-export default AvailabilityPage;
