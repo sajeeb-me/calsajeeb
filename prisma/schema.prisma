@@ -74,8 +74,8 @@ model Availability {
   tillTime String // e.g., '18:00'
   isActive Boolean @default(true) // Toggle availability for the day
 
-  User   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId String
+  User   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String?
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -100,8 +100,8 @@ model EventType {
   active            Boolean @default(true)
   videoCallSoftware String  @default("Google Meet")
 
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId String
+  user   User?   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId String?
 
   createdAt DateTime @default(now())
 }
