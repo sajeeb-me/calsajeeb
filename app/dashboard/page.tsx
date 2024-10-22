@@ -1,14 +1,44 @@
+import { notFound } from "next/navigation";
+import prisma from "../lib/db";
 import { requireUser } from "../lib/hooks";
 
-export default async function DashboardPage() {
-    //    const session = await requireUser();
-    await requireUser();
+async function getData(userId: string) {
+    const data = await prisma.user.findUnique({
+        where: {
+            id: userId,
+        },
+        select: {
+            userName: true,
+            eventType: {
+                select: {
+                    id: true,
+                    active: true,
+                    title: true,
+                    url: true,
+                    duration: true,
+                }
+            }
+        }
+    });
 
+    if (!data) {
+        return notFound();
+    }
+
+    return data;
+}
+
+export default async function DashboardPage() {
+    const session = await requireUser();
+    const data = await getData(session.user?.id as string);
 
     return (
-        <div>
-            <h1>Dashboard</h1>
-            <p>This is the dashboard page</p>
-        </div>
+        <>
+            {data.eventType.length === 0 ? (
+                <p> no data </p>
+            ) : (
+                <p>we have data</p>
+            )}
+        </>
     )
 }  
