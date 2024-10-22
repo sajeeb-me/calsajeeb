@@ -37,7 +37,7 @@ export async function OnboardingAction(prevState: any, formData: FormData) {
         data: {
             userName: submission.value.userName,
             name: submission.value.fullName,
-            Availability: {
+            availability: {
                 createMany: {
                     data: [
                         {
