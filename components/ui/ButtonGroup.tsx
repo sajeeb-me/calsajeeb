@@ -10,11 +10,7 @@ interface ButtonGroupProps {
     children: ReactElement<ButtonProps>[];
 }
 
-export const ButtonGroup = ({
-    className,
-
-    children,
-}: ButtonGroupProps) => {
+export const ButtonGroup = ({ className, children }: ButtonGroupProps) => {
     const totalButtons = Children.count(children);
 
     return (
