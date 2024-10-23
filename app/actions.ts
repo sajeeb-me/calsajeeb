@@ -3,7 +3,7 @@
 import prisma from "./lib/db";
 import { requireUser } from "./lib/hooks";
 import { parseWithZod } from "@conform-to/zod";
-import { aboutSettingsSchema, onboardingSchemaValidation } from "./lib/zodSchemas";
+import { aboutSettingsSchema, EventTypeServerSchema, onboardingSchemaValidation } from "./lib/zodSchemas";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 
@@ -144,4 +144,40 @@ export async function updateAvailabilityAction(formData: FormData) {
         console.error("Error updating availability:", error);
         return { status: "error", message: "Failed to update availability" };
     }
+}
+
+export async function CreateEventTypeAction(prevState: any, formData: FormData) {
+    const session = await requireUser();
+
+    const submission = await parseWithZod(formData, {
+        schema: EventTypeServerSchema({
+            async isUrlUnique() {
+                const data = await prisma.eventType.findFirst({
+                    where: {
+                        userId: session.user?.id,
+                        url: formData.get("url") as string,
+                    },
+                });
+                return !data;
+            },
+        }),
+
+        async: true,
+    });
+    if (submission.status !== "success") {
+        return submission.reply();
+    }
+
+    const data = await prisma.eventType.create({
+        data: {
+            title: submission.value.title,
+            duration: submission.value.duration,
+            url: submission.value.url,
+            description: submission.value.description,
+            userId: session.user?.id as string,
+            videoCallSoftware: submission.value.videoCallSoftware,
+        },
+    });
+
+    return redirect("/dashboard");
 }
