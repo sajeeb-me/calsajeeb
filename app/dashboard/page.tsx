@@ -82,6 +82,9 @@ export default async function DashboardPage() {
                                                     <span>Preview</span>
                                                 </Link>
                                             </DropdownMenuItem>
+                                            {/* <CopyLinkMenuItem
+                                                meetingUrl={`${process.env.NEXT_PUBLIC_URL}/${data.userName}/${item.url}`}
+                                            /> */}
                                             <DropdownMenuItem>
                                                 <Link2 className="mr-2 size-4" />
                                                 <span>Copy</span>
@@ -126,6 +129,10 @@ export default async function DashboardPage() {
                                 </div>
                             </Link>
                             <div className="bg-muted dark:bg-gray-900 px-5 py-3 flex justify-between items-center">
+                                {/* <MenuActiveSwitcher
+                                    initialChecked={item.active}
+                                    eventTypeId={item.id}
+                                /> */}
                                 <Switch />
                                 <Link href={`/dashboard/event/${item.id}`}>
                                     <Button className="">Edit Event</Button>
