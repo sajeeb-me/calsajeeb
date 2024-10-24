@@ -182,7 +182,20 @@ export default async function BookingFormRoute({
                         className="hidden md:block h-full w-[1px]"
                     />
 
+                    {/* <div className="my-4 md:my-0">
+                        <RenderCalendar daysofWeek={eventType.user.Availability} />
+                    </div>
 
+                    <Separator
+                        orientation="vertical"
+                        className="hidden md:block h-full w-[1px]"
+                    />
+
+                    <TimeSlots
+                        selectedDate={selectedDate}
+                        userName={params.username}
+                        meetingDuration={eventType.duration}
+                    /> */}
                 </CardContent>
             </Card>
         </div>
