@@ -1,3 +1,6 @@
+"use client";
+
+import { Calendar } from "@/app/components/bookingForm/Calender";
 import prisma from "@/app/lib/db";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -182,11 +185,12 @@ export default async function BookingFormRoute({
                         className="hidden md:block h-full w-[1px]"
                     />
 
-                    {/* <div className="my-4 md:my-0">
-                        <RenderCalendar daysofWeek={eventType.user.Availability} />
+                    <div className="my-4 md:my-0">
+                        {/* <RenderCalendar daysofWeek={eventType.user.Availability} /> */}
+                        <Calendar />
                     </div>
 
-                    <Separator
+                    {/* <Separator
                         orientation="vertical"
                         className="hidden md:block h-full w-[1px]"
                     />
