@@ -1,6 +1,4 @@
-"use client";
-
-import { Calendar } from "@/app/components/bookingForm/Calender";
+import { RenderCalendar } from "@/app/components/bookingForm/RenderCalendar";
 import prisma from "@/app/lib/db";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -186,8 +184,8 @@ export default async function BookingFormRoute({
                     />
 
                     <div className="my-4 md:my-0">
-                        {/* <RenderCalendar daysofWeek={eventType.user.Availability} /> */}
-                        <Calendar />
+                        {/* <RenderCalendar daysOfWeek={eventType.user?.availability as any} /> */}
+                        <RenderCalendar daysOfWeek={eventType.user?.availability?.map(({ day, isActive }) => ({ day: day.toString(), isActive })) || []} />
                     </div>
 
                     {/* <Separator
