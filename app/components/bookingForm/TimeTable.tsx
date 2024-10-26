@@ -1,7 +1,9 @@
 import prisma from "@/app/lib/db";
 import { nylas } from "@/app/lib/nylas";
+import { Button } from "@/components/ui/button";
 import { Prisma } from "@prisma/client";
 import { addMinutes, format, fromUnixTime, isAfter, isBefore, parse } from "date-fns";
+import Link from "next/link";
 import { GetFreeBusyResponse, NylasResponse } from "nylas";
 
 
@@ -111,6 +113,17 @@ export async function TimeTable({
 }: iappProps) {
     const { data, nylasCalendarData } = await getAvailability(selectedDate, userName);
 
+    const dbAvailability = { fromTime: data?.fromTime, tillTime: data?.tillTime };
+
+    const formattedDate = format(selectedDate, "yyyy-MM-dd");
+
+    const availableSlots = calculateAvailableTimeSlots(
+        dbAvailability,
+        nylasCalendarData,
+        formattedDate,
+        meetingDuration
+    );
+
     return (
         <div>
             <p className="text-base font-semibold">
@@ -119,6 +132,23 @@ export async function TimeTable({
                     {format(selectedDate, "MMM. d")}
                 </span>
             </p>
+
+            <div className="mt-3 max-h-[350px] overflow-y-auto">
+                {availableSlots.length > 0 ? (
+                    availableSlots.map((slot, index) => (
+                        <Link
+                            key={index}
+                            href={`?date=${format(selectedDate, "yyyy-MM-dd")}&time=${slot}`}
+                        >
+                            <Button variant="outline" className="w-full mb-2">
+                                {slot}
+                            </Button>
+                        </Link>
+                    ))
+                ) : (
+                    <p>No available time slots for this date.</p>
+                )}
+            </div>Ì
         </div>
     )
 }
