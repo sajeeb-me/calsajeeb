@@ -188,12 +188,12 @@ export default async function BookingFormRoute({
                         <RenderCalendar daysOfWeek={eventType.user?.availability?.map(({ day, isActive }) => ({ day: day.toString(), isActive })) || []} />
                     </div>
 
-                    {/* <Separator
+                    <Separator
                         orientation="vertical"
                         className="hidden md:block h-full w-[1px]"
                     />
 
-                    <TimeSlots
+                    {/* <TimeSlots
                         selectedDate={selectedDate}
                         userName={params.username}
                         meetingDuration={eventType.duration}
