@@ -194,13 +194,11 @@ export default async function BookingFormRoute({
                         className="hidden md:block h-full w-[1px]"
                     />
 
-                    <TimeTable />
-
-                    {/* <TimeSlots
+                    <TimeTable
                         selectedDate={selectedDate}
                         userName={params.username}
                         meetingDuration={eventType.duration}
-                    /> */}
+                    />
                 </CardContent>
             </Card>
         </div>

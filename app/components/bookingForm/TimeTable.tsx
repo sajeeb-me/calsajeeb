@@ -1,7 +1,19 @@
-export function TimeTable() {
+
+interface iappProps {
+    selectedDate: Date;
+    userName: string;
+    meetingDuration: number;
+}
+
+
+export function TimeTable({
+    selectedDate,
+    userName,
+    meetingDuration,
+}: iappProps) {
     return (
         <div>
-            <h1>Hello from time table</h1>
+
         </div>
     )
 }
