@@ -1,4 +1,5 @@
 import prisma from "@/app/lib/db";
+import { nylas } from "@/app/lib/nylas";
 import { Prisma } from "@prisma/client";
 import { format } from "date-fns";
 
@@ -36,7 +37,16 @@ async function getAvailability(selectedDate: Date, userName: string) {
         },
     });
 
-    return data;
+    const nylasCalendarData = await nylas.calendars.getFreeBusy({
+        identifier: data?.User?.grantId as string,
+        requestBody: {
+            startTime: Math.floor(startOfDay.getTime() / 1000),
+            endTime: Math.floor(endOfDay.getTime() / 1000),
+            emails: [data?.User?.grantEmail as string],
+        },
+    });
+
+    return { data, nylasCalendarData };
 }
 
 export async function TimeTable({
@@ -44,7 +54,7 @@ export async function TimeTable({
     userName,
     meetingDuration,
 }: iappProps) {
-    const data = await getAvailability(selectedDate, userName);
+    const { data, nylasCalendarData } = await getAvailability(selectedDate, userName);
 
     return (
         <div>
