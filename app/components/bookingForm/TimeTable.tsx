@@ -146,9 +146,27 @@ export async function TimeTable({
                         </Link>
                     ))
                 ) : (
-                    <p>No available time slots for this date.</p>
+                    <div className="flex flex-col items-center justify-center h-full">
+                        <p className="text-sm font-medium text-muted-foreground mt-12">
+                            No available time slots for this date.
+                        </p>
+                        <svg
+                            className="w-16 h-16 text-gray-400 mt-4"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                        >
+                            <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z"
+                            ></path>
+                        </svg>
+                    </div>
                 )}
-            </div>Ì
+            </div>
         </div>
     )
 }
