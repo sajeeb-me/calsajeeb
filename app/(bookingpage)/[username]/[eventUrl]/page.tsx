@@ -1,3 +1,4 @@
+import { CreateMeetingAction } from "@/app/actions";
 import { RenderCalendar } from "@/app/components/bookingForm/RenderCalendar";
 import { TimeTable } from "@/app/components/bookingForm/TimeTable";
 import { SubmitButton } from "@/app/components/SubmitButtons";
@@ -120,6 +121,7 @@ export default async function BookingFormRoute({
 
                             <form
                                 className="flex flex-col gap-y-4"
+                                action={CreateMeetingAction}
                             >
                                 <input type="hidden" name="eventTypeId" value={eventType.id} />
                                 <input type="hidden" name="username" value={params.username} />
@@ -129,6 +131,11 @@ export default async function BookingFormRoute({
                                     type="hidden"
                                     name="meetingLength"
                                     value={eventType.duration}
+                                />
+                                <input
+                                    type="hidden"
+                                    name="provider"
+                                    value={eventType.videoCallSoftware}
                                 />
                                 <div className="flex flex-col gap-y-1">
                                     <Label>Your Name</Label>
