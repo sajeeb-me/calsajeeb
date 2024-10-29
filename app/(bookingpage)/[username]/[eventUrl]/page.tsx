@@ -1,7 +1,10 @@
 import { RenderCalendar } from "@/app/components/bookingForm/RenderCalendar";
 import { TimeTable } from "@/app/components/bookingForm/TimeTable";
+import { SubmitButton } from "@/app/components/SubmitButtons";
 import prisma from "@/app/lib/db";
 import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 import { CalendarX2, Clock, VideoIcon } from "lucide-react";
 import Image from "next/image";
@@ -115,6 +118,30 @@ export default async function BookingFormRoute({
                                 className="hidden md:block h-full w-[1px]"
                             />
 
+                            <form
+                                className="flex flex-col gap-y-4"
+                            >
+                                <input type="hidden" name="eventTypeId" value={eventType.id} />
+                                <input type="hidden" name="username" value={params.username} />
+                                <input type="hidden" name="fromTime" value={searchParams.time} />
+                                <input type="hidden" name="eventDate" value={searchParams.date} />
+                                <input
+                                    type="hidden"
+                                    name="meetingLength"
+                                    value={eventType.duration}
+                                />
+                                <div className="flex flex-col gap-y-1">
+                                    <Label>Your Name</Label>
+                                    <Input name="name" placeholder="Your Name" />
+                                </div>
+
+                                <div className="flex flex-col gap-y-1">
+                                    <Label>Your Email</Label>
+                                    <Input name="email" placeholder="johndoe@gmail.com" />
+                                </div>
+
+                                <SubmitButton className="w-full mt-5" text="Book Meeting" />
+                            </form>
                         </CardContent>
                     </Card>
                 ) : (
