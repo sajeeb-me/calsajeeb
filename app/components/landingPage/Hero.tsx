@@ -40,19 +40,19 @@ export function Hero() {
                             <g filter="url(#filter0_f_10_20)">
                                 <path
                                     d="M128.6 0H0V322.2L106.2 134.75L128.6 0Z"
-                                    fill="#03FFE0"
+                                    fill="#FFA500"
                                 ></path>
                                 <path
                                     d="M0 322.2V400H240H320L106.2 134.75L0 322.2Z"
-                                    fill="#7C87F8"
+                                    fill="#FF8C00"
                                 ></path>
                                 <path
                                     d="M320 400H400V78.75L106.2 134.75L320 400Z"
-                                    fill="#4C65E4"
+                                    fill="#FF7F50"
                                 ></path>
                                 <path
                                     d="M400 0H128.6L106.2 134.75L400 78.75V0Z"
-                                    fill="#043AFF"
+                                    fill="#FF4500"
                                 ></path>
                             </g>
                         </g>
