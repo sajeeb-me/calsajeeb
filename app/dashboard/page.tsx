@@ -4,9 +4,8 @@ import { requireUser } from "../lib/hooks";
 import { EmptyState } from "../components/EmptyState";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Link2, Pen, Settings, Trash, Users2 } from "lucide-react";
+import { ExternalLink, Pen, Settings, Trash, Users2 } from "lucide-react";
 import Link from "next/link";
-import { Switch } from "@/components/ui/switch";
 import { CopyLinkMenuItem } from "../components/CopyLinkMenuItem";
 import { MenuActiveSwitcher } from "../components/EventTypeSwitcher";
 
