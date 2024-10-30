@@ -1,4 +1,5 @@
 import { DeleteEventTypeAction } from "@/app/actions";
+import { SubmitButton } from "@/app/components/SubmitButtons";
 import { Button } from "@/components/ui/button";
 import {
     Card,
@@ -26,7 +27,7 @@ const DeleteEventType = ({ params }: { params: { eventTypeId: string } }) => {
                     </Button>
                     <form action={DeleteEventTypeAction}>
                         <input type="hidden" name="id" value={params.eventTypeId} />
-                        <Button variant="destructive">Delete</Button>
+                        <SubmitButton text="Delete Event" variant="destructive" />
                     </form>
                 </CardFooter>
             </Card>
