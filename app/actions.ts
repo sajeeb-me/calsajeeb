@@ -3,7 +3,7 @@
 import prisma from "./lib/db";
 import { requireUser } from "./lib/hooks";
 import { parseWithZod } from "@conform-to/zod";
-import { aboutSettingsSchema, EventTypeServerSchema, onboardingSchemaValidation } from "./lib/zodSchemas";
+import { aboutSettingsSchema, eventTypeSchema, EventTypeServerSchema, onboardingSchemaValidation } from "./lib/zodSchemas";
 import { redirect } from "next/navigation";
 import { revalidatePath } from "next/cache";
 import { nylas } from "./lib/nylas";
@@ -281,19 +281,20 @@ export async function EditEventTypeAction(prevState: any, formData: FormData) {
     const session = await requireUser();
 
     const submission = await parseWithZod(formData, {
-        schema: EventTypeServerSchema({
-            async isUrlUnique() {
-                const data = await prisma.eventType.findFirst({
-                    where: {
-                        userId: session.user?.id,
-                        url: formData.get("url") as string,
-                    },
-                });
-                return !data;
-            },
-        }),
+        schema: eventTypeSchema,
+        // schema: EventTypeServerSchema({
+        //     async isUrlUnique() {
+        //         const data = await prisma.eventType.findFirst({
+        //             where: {
+        //                 userId: session.user?.id,
+        //                 url: formData.get("url") as string,
+        //             },
+        //         });
+        //         return !data;
+        //     },
+        // }),
 
-        async: true,
+        // async: true,
     });
 
     if (submission.status !== "success") {
@@ -303,7 +304,7 @@ export async function EditEventTypeAction(prevState: any, formData: FormData) {
     const data = await prisma.eventType.update({
         where: {
             id: formData.get("id") as string,
-            userId: session.user?.id as string,
+            userId: session.user?.id,
         },
         data: {
             title: submission.value.title,
