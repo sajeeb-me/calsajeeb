@@ -109,7 +109,7 @@ export async function SettingsAction(prevState: any, formData: FormData) {
     return redirect("/dashboard");
 }
 
-export async function updateAvailabilityAction(formData: FormData) {
+export async function UpdateAvailabilityAction(formData: FormData) {
     const session = await requireUser();
 
     const rawData = Object.fromEntries(formData.entries());

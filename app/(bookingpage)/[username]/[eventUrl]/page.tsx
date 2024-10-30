@@ -197,8 +197,7 @@ export default async function BookingFormRoute({
                             />
 
                             <div className="my-4 md:my-0">
-                                {/* <RenderCalendar daysOfWeek={eventType.user?.availability as any} /> */}
-                                <RenderCalendar daysOfWeek={eventType.user?.availability?.map(({ day, isActive }) => ({ day: day.toString(), isActive })) || []} />
+                                <RenderCalendar daysOfWeek={eventType.user?.availability as any} />
                             </div>
 
                             <Separator
