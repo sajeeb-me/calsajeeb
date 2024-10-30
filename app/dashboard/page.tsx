@@ -8,6 +8,7 @@ import { ExternalLink, Link2, Pen, Settings, Trash, Users2 } from "lucide-react"
 import Link from "next/link";
 import { Switch } from "@/components/ui/switch";
 import { CopyLinkMenuItem } from "../components/CopyLinkMenuItem";
+import { MenuActiveSwitcher } from "../components/EventTypeSwitcher";
 
 async function getData(userId: string) {
     const data = await prisma.user.findUnique({
@@ -126,13 +127,13 @@ export default async function DashboardPage() {
                                 </div>
                             </Link>
                             <div className="bg-muted dark:bg-gray-900 px-5 py-3 flex justify-between items-center">
-                                {/* <MenuActiveSwitcher
+                                <MenuActiveSwitcher
                                     initialChecked={item.active}
                                     eventTypeId={item.id}
-                                /> */}
-                                <Switch />
+                                />
+
                                 <Link href={`/dashboard/event/${item.id}`}>
-                                    <Button className="">Edit Event</Button>
+                                    <Button>Edit Event</Button>
                                 </Link>
                             </div>
                         </div>
