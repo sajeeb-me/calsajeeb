@@ -60,9 +60,9 @@ export function EditEventTypeForm({
         <div className="h-full w-full flex-1 flex flex-col items-center justify-center">
             <Card>
                 <CardHeader>
-                    <CardTitle>Add new appointment type</CardTitle>
+                    <CardTitle>Edit appointment type</CardTitle>
                     <CardDescription>
-                        Create a new appointment type that allows people to book times.
+                        Edit your appointment type that allows people to book times.
                     </CardDescription>
                 </CardHeader>
                 <form noValidate id={form.id} onSubmit={form.onSubmit} action={action}>
@@ -174,7 +174,7 @@ export function EditEventTypeForm({
                         <Button asChild variant="secondary">
                             <Link href="/dashboard">Cancel</Link>
                         </Button>
-                        <SubmitButton text="Create Event Type" />
+                        <SubmitButton text="Edit Event Type" />
                     </CardFooter>
                 </form>
             </Card>
