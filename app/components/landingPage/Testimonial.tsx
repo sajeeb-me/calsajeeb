@@ -26,6 +26,7 @@ export function Testimonial() {
                             </svg>
                             <span className="relative z-10 ">
                                 CalSajeeb is the best scheduling tool I have ever used. It is super easy to use and my clients love it.
+                                It has streamlined my workflow and significantly improved my productivity.
                             </span>
                         </p>
                     </div>
