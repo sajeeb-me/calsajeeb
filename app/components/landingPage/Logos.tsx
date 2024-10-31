@@ -8,7 +8,7 @@ export function Logos() {
     return (
         <div className="py-10">
             <h2 className="text-center text-lg font-semibold leading-7">
-                Trusted by the best companies in the world
+                Proudly partnered with industry-leading innovators
             </h2>
             <Marquee>
                 <div className="mt-10 max-w-lg mx-auto sm:max-w-x lg:mx-0 lg:max-w-none flex gap-x-14 overflow-hidden">
