@@ -2,6 +2,8 @@ import Image from "next/image";
 import NylasLogo from "@/public/nylas-logo.png";
 import NextjsLogo from "@/public/nextjs-logo.svg";
 import vercelLogo from "@/public/vercel.svg";
+import SupabaseLogo from "@/public/supabase.svg";
+import TeamsLogo from "@/public/teams.png";
 import Marquee from "react-fast-marquee";
 
 export function Logos() {
@@ -28,12 +30,22 @@ export function Logos() {
                         className="col-span-2 max-h-7 md:max-h-12 w-full object-contain lg:col-span-1 dark:invert"
                     />
                     <Image
-                        src={NylasLogo}
+                        src={NextjsLogo}
                         alt="Logo"
                         className="col-span-2 max-h-7 md:max-h-12 w-full object-contain lg:col-span-1 dark:invert"
                     />
                     <Image
-                        src={NextjsLogo}
+                        src={SupabaseLogo}
+                        alt="Logo"
+                        className="col-span-2 max-h-7 md:max-h-12 w-full object-contain lg:col-span-1 dark:invert"
+                    />
+                    <Image
+                        src={TeamsLogo}
+                        alt="Logo"
+                        className="col-span-2 max-h-7 md:max-h-12 w-full object-contain lg:col-span-1 dark:invert"
+                    />
+                    <Image
+                        src={NylasLogo}
                         alt="Logo"
                         className="col-span-2 max-h-7 md:max-h-12 w-full object-contain lg:col-span-1 dark:invert"
                     />
