@@ -15,13 +15,15 @@ export default async function Home() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <>
       <Navbar />
-      <Hero />
-      <Logos />
-      <Features />
-      <Testimonial />
-      <CTA />
-    </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <Hero />
+        <Logos />
+        <Features />
+        <Testimonial />
+        <CTA />
+      </div>
+    </>
   );
 }
