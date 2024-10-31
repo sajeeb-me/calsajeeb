@@ -29,10 +29,10 @@ export function Features() {
             <div className="max-w-2xl mx-auto lg:text-center">
                 <p className="font-semibold leading-7 text-primary">Schedule faster</p>
                 <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-                    Schedule meetings in minutes
+                    Revolutionize your scheduling experience
                 </h1>
                 <p className="mt-6 text-base leading-snug text-muted-foreground">
-                    With CalSajeeb, you can schedule meetings with your clients in minutes. No more back and forth emails. Just send your link and let your clients pick a time that works for them.
+                    Discover the ease of scheduling with CalSajeeb – no more email ping-pong, just seamless, efficient meeting setups that fit perfectly into your busy day.
                 </p>
             </div>
 
