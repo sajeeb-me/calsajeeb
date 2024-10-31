@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { AuthModal } from "../AuthModal";
 
 export function CTA() {
     return (
@@ -11,7 +12,7 @@ export function CTA() {
                     Join thousands of users who are scheduling smarter, not harder.
                 </h3>
                 <div className="mt-8 flex items-center justify-center gap-x-6">
-                    <Button>Get Started Today</Button>
+                    <AuthModal />
                 </div>
                 {/* gradient svg */}
                 <svg
