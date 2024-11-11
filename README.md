@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CalSajeeb
+[CalSajeeb](https://calsajeeb.vercel.app) is a powerful scheduling application designed to simplify the process of booking and managing appointments. Whether you're a freelancer, consultant, or business owner, CalSajeeb helps you streamline your scheduling workflow, reduce no-shows, and improve client satisfaction. With an intuitive interface and robust features, CalSajeeb makes it easy to set your availability, send booking links, and manage appointments all in one place.
+
+## Technologies Used
+
+- Next.js
+- Prisma
+- Nylas
+- NextAuth
+- Zod
+- Tailwind CSS
+- Vercel
+
+## Features
+
+- **Easy Scheduling**: Set your availability and share booking links with clients effortlessly.
+- **Automated Reminders**: Reduce no-shows with automated email and SMS reminders.
+- **Calendar Integration**: Sync with Google Calendar, Outlook, and other popular calendar services.
+- **Customizable Booking Pages**: Personalize your booking pages to match your brand.
+- **Client Management**: Keep track of client details and appointment history in one place.
+- **Time Zone Detection**: Automatically adjust for different time zones to avoid scheduling conflicts.
+- **Analytics and Reporting**: Gain insights into your scheduling patterns and client behavior.
+
 
 ## Getting Started
 
-First, run the development server:
+To get started with CalSajeeb, you have two options:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Visit the website: You can access the application by visiting [calsajeeb.vercel.app](https://calsajeeb.vercel.app).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Clone the repository: If you prefer to run the application locally, follow these steps:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+    - Clone the repository: `git clone https://github.com/sajeeb-me/calsajeeb.git`
+    - Install dependencies: `npm install`
+    - Set up the database: Create a MongoDB database and update the connection string in the `.env` file.
+    - Start the server: `npm run dev`
+    - Open your browser and visit `http://localhost:3000` to access the application.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Contributions are welcome! If you have any ideas or suggestions to improve Honest Echo, please submit a pull request. Make sure to follow the code of conduct and guidelines specified in the repository.
