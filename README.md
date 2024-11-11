@@ -32,7 +32,6 @@ To get started with CalSajeeb, you have two options:
 
     - Clone the repository: `git clone https://github.com/sajeeb-me/calsajeeb.git`
     - Install dependencies: `npm install`
-    - Set up the database: Create a MongoDB database and update the connection string in the `.env` file.
     - Start the server: `npm run dev`
     - Open your browser and visit `http://localhost:3000` to access the application.
 
