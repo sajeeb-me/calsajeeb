@@ -39,4 +39,4 @@ To get started with CalSajeeb, you have two options:
 
 ## Contributing
 
-Contributions are welcome! If you have any ideas or suggestions to improve Honest Echo, please submit a pull request. Make sure to follow the code of conduct and guidelines specified in the repository.
+Contributions are welcome! If you have any ideas or suggestions to improve CalSajeeb, please submit a pull request. Make sure to follow the code of conduct and guidelines specified in the repository.
