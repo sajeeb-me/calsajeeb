@@ -18,7 +18,6 @@ export function Hero() {
                         <Image
                             src={HeroVideo}
                             alt="Hero image"
-                            priority
                             className="object-cover w-full border rounded-lg shadow-2xl lg:rounded-2xl"
                         />
                     </div>

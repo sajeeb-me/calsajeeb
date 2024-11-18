@@ -10,7 +10,7 @@ export function AuthModal() {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button>Try for free</Button>
+                <Button>Get registered free</Button>
             </DialogTrigger>
 
             <DialogContent
