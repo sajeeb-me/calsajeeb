@@ -4,7 +4,7 @@ import { requireUser } from "../lib/hooks";
 import { EmptyState } from "../components/EmptyState";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Pen, Settings, Trash, Users2 } from "lucide-react";
+import { Clock, ExternalLink, Pen, Settings, Trash, Users2 } from "lucide-react";
 import Link from "next/link";
 import { CopyLinkMenuItem } from "../components/CopyLinkMenuItem";
 import { MenuActiveSwitcher } from "../components/EventTypeSwitcher";
@@ -105,15 +105,18 @@ export default async function DashboardPage() {
                             </div>
 
                             <Link href={`/dashboard/event/${item.id}`}>
-                                <div className="p-5">
-                                    <div className="flex items-center">
-                                        <div className="flex-shrink-0">
+                                <div className="p-5 mb-14">
+                                    <div className="flex items-start">
+                                        <div className="flex-shrink-0 mt-2">
                                             <Users2 className="h-6 w-6" aria-hidden="true" />
                                         </div>
                                         <div className="ml-5 w-0 flex-1">
                                             <dl>
-                                                <dt className="text-sm font-medium truncate ">
-                                                    {item.duration} Minutes Meeting
+                                                <dt className="text-xs truncate mb-1">
+                                                    <p className="flex gap-1 items-center bg-primary/10 w-fit px-3 py-1 rounded-full">
+                                                        {/* <Clock className="h-3 w-3" /> */}
+                                                        {item.duration} Minutes
+                                                    </p>
                                                 </dt>
                                                 <dd>
                                                     <div className="text-lg font-medium ">
@@ -125,15 +128,17 @@ export default async function DashboardPage() {
                                     </div>
                                 </div>
                             </Link>
-                            <div className="bg-muted dark:bg-gray-900 px-5 py-3 flex justify-between items-center">
-                                <MenuActiveSwitcher
-                                    initialChecked={item.active}
-                                    eventTypeId={item.id}
-                                />
+                            <div className="absolute bottom-0 w-full">
+                                <div className="bg-muted dark:bg-gray-900 px-5 py-3 flex justify-between items-center">
+                                    <MenuActiveSwitcher
+                                        initialChecked={item.active}
+                                        eventTypeId={item.id}
+                                    />
 
-                                <Link href={`/dashboard/event/${item.id}`}>
-                                    <Button>Edit Event</Button>
-                                </Link>
+                                    <Link href={`/dashboard/event/${item.id}`}>
+                                        <Button>Edit Event</Button>
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     ))}
