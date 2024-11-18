@@ -1,6 +1,5 @@
 import Image from "next/image";
 
-import HeroImage from "@/public/better.png";
 import HeroVideo from "@/public/calsajeeb.gif";
 import { AuthModal } from "../AuthModal";
 
